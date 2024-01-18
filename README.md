@@ -1,4 +1,4 @@
-# adapt-theme-meLearning
+# adapt-microlearning-theme-meLearning
 
 **Me Learning** is a *theme* bundled with the [Adapt framework](https://github.com/adaptlearning/adapt_framework).
 
@@ -12,10 +12,10 @@ As Adapt's *[core theme](https://github.com/adaptlearning/adapt_framework/wiki/C
 
 * If **Vanilla** has been uninstalled from the Adapt framework, it may be reinstalled.
 With the [Adapt CLI](https://github.com/adaptlearning/adapt-cli) installed, run the following from the command line:
-`adapt install adapt-theme-meLearning`
+`adapt install adapt-microlearning-theme-meLearning`
 
     Alternatively, this component can also be installed by adding the following line of code to the *adapt.json* file:
-    `"adapt-theme-meLearning": "*"`
+    `"adapt-microlearning-theme-meLearning": "*"`
     Then running the command:
     `adapt install`
     (This second method will reinstall all plug-ins listed in *adapt.json*.)
@@ -25,7 +25,7 @@ With the [Adapt CLI](https://github.com/adaptlearning/adapt-cli) installed, run 
 ## Uninstallation
 
 The Adapt framework does not allow the installation of more than one theme at a time. In order to replace **Vanilla** it must be uninstalled. With the root of your framework installation as your current working directory, run the following command:
-`adapt uninstall adapt-theme-meLearning`
+`adapt uninstall adapt-microlearning-theme-meLearning`
 
 ## Settings overview
 
