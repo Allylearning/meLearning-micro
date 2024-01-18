@@ -1,0 +1,24 @@
+{
+  "name": "adapt-microlearning-theme-meLearning",
+  "version": "1.0.0",
+  "framework": ">=5.2",
+  "homepage": "https://github.com/Allylearning/meLearning-micro/",
+  "issues": "https://github.com/Allylearning/meLearning-micro//issues/new",
+  "theme": "meLearning-micro",
+  "displayName": "Me Learning Microlearning",
+  "description": "2024 Me learning Microlearning theme",
+  "main": "js/theme.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-theme"
+  ],
+  "license": "GPL-3.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "targetAttribute": "_meLearning-micro"
+}

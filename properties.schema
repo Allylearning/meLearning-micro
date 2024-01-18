@@ -1,0 +1,611 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "$ref": "http://localhost/plugins/content/theme/model.schema",
+  "globals": {
+    "ariaCloseButton": {
+      "type": "string",
+      "default": "Close the course",
+      "title": "Close button aria text",
+      "inputType": "Text",
+      "translatable": true
+    },
+    "ariaReturnToMenu": {
+      "type": "string",
+      "default": "Back to Home",
+      "title": "Back to Menu aria text",
+      "inputType": "Text",
+      "translatable": true
+    },
+    "ariaPrevious": {
+      "type": "string",
+      "default": "Previous",
+      "title": "Previous aria text",
+      "inputType": "Text",
+      "translatable": true
+    }
+  },
+  "properties": {
+    "variables": {
+      "_colors": {
+        "type": "object",
+        "required": false,
+        "title": "Colours",
+        "properties": {
+          "primary-color": {
+            "title": "Primary colour",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#004cff"
+          },
+          "secondary-color": {
+            "title": "Secondary colour",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#1C334A"
+          },
+          "heading-color": {
+            "title": "Heading colour",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#1C334A"
+          },
+          "font-color": {
+            "title": "Font colour",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#222"
+          }
+        }
+      }
+    },
+    "pluginLocations": {
+      "type": "object",
+      "required": true,
+      "properties": {
+        "config": {
+          "type": "object"
+        },
+        "course": {
+          "type": "object",
+          "properties": {
+            "_meLearning-micro": {
+              "type": "object",
+              "required": false,
+              "properties": {
+                "_companyLogo": {
+                  "type": "string",
+                  "required": false,
+                  "default": "",
+                  "inputType": "Asset:image",
+                  "validators": [],
+                  "title": "Company logo",
+                  "help": "Shown in the top left and used as a back button on pages"
+                },
+                "_animate": {
+                  "type": "object",
+                  "required": false,
+                  "legend": "CSS animations",
+                  "properties": {
+                    "_isEnabled": {
+                      "type": "boolean",
+                      "required": false,
+                      "default": true,
+                      "title": "Is enabled?",
+                      "inputType": "Checkbox",
+                      "validators": [],
+                      "help": "If disabled all animations are disabled"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "contentobject": {
+          "type": "object",
+          "properties": {
+            "_meLearning-micro": {
+              "type": "object",
+              "required": false,
+              "properties": {
+                "_backgroundImage": {
+                  "type": "object",
+                  "required": false,
+                  "legend": "Page background image",
+                  "properties": {
+                    "_large": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": "Asset:image",
+                      "validators": [],
+                      "help": "Large background image - used on desktop"
+                    },
+                    "_medium": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": "Asset:image",
+                      "validators": [],
+                      "help": "Medium background image - used on tablet"
+                    },
+                    "_small": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": "Asset:image",
+                      "validators": [],
+                      "help": "Small background image - used on mobile"
+                    }
+                  }
+                },
+                "_backgroundStyles": {
+                  "type": "object",
+                  "required": false,
+                  "legend": "Page background image styles",
+                  "properties": {
+                    "_backgroundRepeat": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": {
+                        "type": "Select",
+                        "options": ["repeat", "repeat-x", "repeat-y", "no-repeat"]
+                      },
+                      "title": "Set if/how the background image repeats",
+                      "help": "Repeat-x: The background image is repeated only horizontally. Repeat-y: The background image is repeated only vertically."
+                    },
+                    "_backgroundSize": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": {
+                        "type": "Select",
+                        "options": ["auto", "cover", "contain"]
+                      },
+                      "title": "Set the size of the background image",
+                      "help": "Auto: The background image is displayed in its original size. Cover: Resize the background image to cover the entire container, even if it has to stretch or crop the image. Contain: Resize the background image to make sure the image is fully visible."
+                    },
+                    "_backgroundPosition": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": {
+                        "type": "Select",
+                        "options": ["left top", "left center", "left bottom", "center top", "center center", "center bottom", "right top", "right center", "right bottom"]
+                      },
+                      "title": "Set the position of the background image",
+                      "help": "The first value is the horizontal position and the second value is the vertical."
+                    }
+                  }
+                },
+                "_pageHeader": {
+                  "type": "object",
+                  "required": false,
+                  "properties": {
+                    "_graphic": {
+                      "type": "object",
+                      "required": false,
+                      "legend": "Page header graphic",
+                      "properties": {
+                        "_src": {
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "inputType": "Asset:image",
+                          "validators": [],
+                          "title": "Graphic",
+                          "help": "If missing uses the one from the menu"
+                        },
+                        "_alt": {
+                          "title": "Aria Label",
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "inputType": "Text",
+                          "validators": []
+                        }
+                      }
+                    },
+                    "_backgroundImage": {
+                      "type": "object",
+                      "required": false,
+                      "legend": "Page header background image",
+                      "properties": {
+                        "_large": {
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "inputType": "Asset:image",
+                          "validators": [],
+                          "help": "Large background image - used on desktop"
+                        },
+                        "_medium": {
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "inputType": "Asset:image",
+                          "validators": [],
+                          "help": "Medium background image - used on tablet"
+                        },
+                        "_small": {
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "inputType": "Asset:image",
+                          "validators": [],
+                          "help": "Small background image - used on mobile"
+                        }
+                      }
+                    },
+                    "_backgroundColor": {
+                      "type": "object",
+                      "required": false,
+                      "legend": "Page header background colour",
+                      "properties": {
+                        "_isEnabled": {
+                          "type": "boolean",
+                          "required": false,
+                          "default": false,
+                          "title": "Is enabled?",
+                          "inputType": "Checkbox",
+                          "validators": [],
+                          "help": "If enabled background colour is applied to the page header"
+                        },
+                        "_backgroundColor": {
+                          "title": "Page header background colour",
+                          "type": "string",
+                          "inputType": "ColourPicker",
+                          "default": "#000"
+                        },
+                        "_color": {
+                          "title": "Page header font colour",
+                          "type": "string",
+                          "inputType": "ColourPicker",
+                          "default": "#FFF"
+                        }
+                      }
+                    },
+                    "_backgroundStyles": {
+                      "type": "object",
+                      "required": false,
+                      "legend": "Page header background image styles",
+                      "properties": {
+                        "_backgroundRepeat": {
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "inputType": {
+                            "type": "Select",
+                            "options": ["repeat", "repeat-x", "repeat-y", "no-repeat"]
+                          },
+                          "title": "Set if/how the background image repeats",
+                          "help": "Repeat-x: The background image is repeated only horizontally. Repeat-y: The background image is repeated only vertically."
+                        },
+                        "_backgroundSize": {
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "inputType": {
+                            "type": "Select",
+                            "options": ["auto", "cover", "contain"]
+                          },
+                          "title": "Set the size of the background image",
+                          "help": "Auto: The background image is displayed in its original size. Cover: Resize the background image to cover the entire container, even if it has to stretch or crop the image. Contain: Resize the background image to make sure the image is fully visible."
+                        },
+                        "_backgroundPosition": {
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "inputType": {
+                            "type": "Select",
+                            "options": ["left top", "left center", "left bottom", "center top", "center center", "center bottom", "right top", "right center", "right bottom"]
+                          },
+                          "title": "Set the position of the background image",
+                          "help": "The first value is the horizontal position and the second value is the vertical."
+                        }
+                      }
+                    },
+                    "_minimumHeights": {
+                      "type": "object",
+                      "required": false,
+                      "legend": "Page header minimum height",
+                      "properties": {
+                        "_large": {
+                          "type": "number",
+                          "required": false,
+                          "default": "",
+                          "inputType": "Number",
+                          "validators": ["number"],
+                          "help": "Minimum height should only be used in instances where the page header height needs to be greater than the content e.g. to prevent a background image being cropped"
+                        },
+                        "_medium": {
+                          "type": "number",
+                          "required": false,
+                          "default": "",
+                          "inputType": "Number",
+                          "validators": ["number"],
+                          "help": "Minimum height should only be used in instances where the page header height needs to be greater than the content e.g. to prevent a background image being cropped"
+                        },
+                        "_small": {
+                          "type": "number",
+                          "required": false,
+                          "default": "",
+                          "inputType": "Number",
+                          "validators": ["number"],
+                          "help": "Minimum height should only be used in instances where the page header height needs to be greater than the content e.g. to prevent a background image being cropped"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "article": {
+          "type": "object",
+          "properties": {
+            "_meLearning-micro": {
+              "type": "object",
+              "required": false,
+              "properties": {
+                "_backgroundImage": {
+                  "type": "object",
+                  "required": false,
+                  "legend": "Article background image",
+                  "properties": {
+                    "_large": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": "Asset:image",
+                      "validators": [],
+                      "help": "Large background image - used on desktop"
+                    },
+                    "_medium": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": "Asset:image",
+                      "validators": [],
+                      "help": "Medium background image - used on tablet"
+                    },
+                    "_small": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": "Asset:image",
+                      "validators": [],
+                      "help": "Small background image - used on mobile"
+                    }
+                  }
+                },
+                "_backgroundStyles": {
+                  "type": "object",
+                  "required": false,
+                  "legend": "Article background image styles",
+                  "properties": {
+                    "_backgroundRepeat": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": {
+                        "type": "Select",
+                        "options": ["repeat", "repeat-x", "repeat-y", "no-repeat"]
+                      },
+                      "title": "Set if/how the background image repeats",
+                      "help": "Repeat-x: The background image is repeated only horizontally. Repeat-y: The background image is repeated only vertically."
+                    },
+                    "_backgroundSize": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": {
+                        "type": "Select",
+                        "options": ["auto", "cover", "contain"]
+                      },
+                      "title": "Set the size of the background image",
+                      "help": "Auto: The background image is displayed in its original size. Cover: Resize the background image to cover the entire container, even if it has to stretch or crop the image. Contain: Resize the background image to make sure the image is fully visible."
+                    },
+                    "_backgroundPosition": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": {
+                        "type": "Select",
+                        "options": ["left top", "left center", "left bottom", "center top", "center center", "center bottom", "right top", "right center", "right bottom"]
+                      },
+                      "title": "Set the position of the background image",
+                      "help": "The first value is the horizontal position and the second value is the vertical."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "block": {
+          "type": "object",
+          "properties": {
+            "_meLearning-micro: {
+              "type": "object",
+              "required": false,
+              "properties": {
+                "_backgroundColor": {
+                  "type": "object",
+                  "required": false,
+                  "legend": "Block background colour",
+                  "properties": {
+                    "_isEnabled": {
+                      "type": "boolean",
+                      "required": false,
+                      "default": false,
+                      "title": "Is enabled?",
+                      "inputType": "Checkbox",
+                      "validators": [],
+                      "help": "If enabled, applies a block background colour to the block"
+                    },
+                    "_color": {
+                      "title": "Background colour",
+                      "type": "string",
+                      "inputType": "ColourPicker",
+                      "default": "#004cff",
+                      "help": ""
+                    },
+                    "_fontColor": {
+                      "title": "Font colour",
+                      "type": "string",
+                      "inputType": "ColourPicker",
+                      "default": "#FFFFFF",
+                      "help": "The colour of the font in the block"
+                    }
+                  }
+                },
+                "_backgroundImage": {
+                  "type": "object",
+                  "required": false,
+                  "legend": "Block background image",
+                  "properties": {
+                    "_large": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": "Asset:image",
+                      "validators": [],
+                      "help": "Large background image - used on desktop"
+                    },
+                    "_medium": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": "Asset:image",
+                      "validators": [],
+                      "help": "Medium background image - used on tablet"
+                    },
+                    "_small": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": "Asset:image",
+                      "validators": [],
+                      "help": "Small background image - used on mobile"
+                    }
+                  }
+                },
+                "_backgroundStyles": {
+                  "type": "object",
+                  "required": false,
+                  "legend": "Block background image styles",
+                  "properties": {
+                    "_backgroundRepeat": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": {
+                        "type": "Select",
+                        "options": ["repeat", "repeat-x", "repeat-y", "no-repeat"]
+                      },
+                      "title": "Set if/how the background image repeats",
+                      "help": "Repeat-x: The background image is repeated only horizontally. Repeat-y: The background image is repeated only vertically."
+                    },
+                    "_backgroundSize": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": {
+                        "type": "Select",
+                        "options": ["auto", "cover", "contain"]
+                      },
+                      "title": "Set the size of the background image",
+                      "help": "Auto: The background image is displayed in its original size. Cover: Resize the background image to cover the entire container, even if it has to stretch or crop the image. Contain: Resize the background image to make sure the image is fully visible."
+                    },
+                    "_backgroundPosition": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": {
+                        "type": "Select",
+                        "options": ["left top", "left center", "left bottom", "center top", "center center", "center bottom", "right top", "right center", "right bottom"]
+                      },
+                      "title": "Set the position of the background image",
+                      "help": "The first value is the horizontal position and the second value is the vertical."
+                    }
+                  }
+                },
+                "_minimumHeights": {
+                  "type": "object",
+                  "required": false,
+                  "legend": "Block minimum height",
+                  "properties": {
+                    "_large": {
+                      "type": "number",
+                      "required": false,
+                      "default": "",
+                      "inputType": "Number",
+                      "validators": ["number"],
+                      "help": "Minimum height should only be used in instances where the block height needs to be greater than the content e.g. to prevent a background image being cropped"
+                    },
+                    "_medium": {
+                      "type": "number",
+                      "required": false,
+                      "default": "",
+                      "inputType": "Number",
+                      "validators": ["number"],
+                      "help": "Minimum height should only be used in instances where the block height needs to be greater than the content e.g. to prevent a background image being cropped"
+                    },
+                    "_small": {
+                      "type": "number",
+                      "required": false,
+                      "default": "",
+                      "inputType": "Number",
+                      "validators": ["number"],
+                      "help": "Minimum height should only be used in instances where the block height needs to be greater than the content e.g. to prevent a background image being cropped"
+                    }
+                  }
+                },
+                "_isDividerBlock": {
+                  "type": "boolean",
+                  "required": false,
+                  "default": false,
+                  "title": "Divider block?",
+                  "inputType": "Checkbox",
+                  "validators": [],
+                  "help": "If enabled, applies a divider class to the block"
+                }
+              }
+            }
+          }
+        },
+        "component": {
+          "type": "object",
+          "properties": {
+            "_meLearning-micro": {
+              "type": "object",
+              "required": false,
+              "properties": {
+                "_animate": {
+                  "type": "object",
+                  "required": false,
+                  "properties": {
+                    "_isEnabled": {
+                      "type": "boolean",
+                      "required": false,
+                      "default": true,
+                      "title": "Enable animation on component",
+                      "inputType": "Checkbox",
+                      "validators": [],
+                      "help": ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
