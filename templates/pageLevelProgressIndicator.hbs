@@ -1,0 +1,8 @@
+{{! make the _globals object in course.json available to this template}}
+{{import_globals}}
+{{#equals type "page"}}
+  <div class="btn-icon nav__btn nav__drawer-btn pagelevelprogress__nav-btn" aria-label="{{_globals._accessibility._ariaLabels.navigationDrawer}}">
+    <div class="icon-label">Menu</div>
+    <div class="icon"></div>
+  </button>
+{{/equals}}
