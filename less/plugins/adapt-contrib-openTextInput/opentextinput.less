@@ -1,0 +1,46 @@
+/* These fix the open text input extension */
+.opentextinput {
+    textarea.opentextinput__item-textbox {
+      border-radius: 5px;
+      border: solid 1px @platinum;
+      background-color: #ffffff;
+      padding: 15px;
+      color: #222222;
+      line-height: inherit;
+      max-height: 200px;
+    }
+    .opentextinput__count-characters {
+        border-radius: 5px;
+        margin-bottom: 10px;
+        font-family: @btn-family;
+        max-width: 100%;
+        background: #f2f3f6;
+        color: #222;
+        text-align: center;
+        position: inherit;
+    }
+    
+    .opentextinput__count-characters .opentextinput__autosave {
+        position: absolute;
+        color: @primary-color;
+        left: 19%;
+        right: 19%;
+        background: #f2f3f6;
+        bottom: 54.5%;
+        border-radius: 4px;
+    }
+    
+    .opentextinput__count-characters-container {
+        padding: 10px;
+    }
+    .opentextinput__item-modelanswer.opentextinput__item-textbox.opentextinput__show-modelanswer {
+        border: solid @platinum 1px;
+        border-radius: 4px;
+        padding: 15px;
+        background: #f2f3f6;
+    }
+    .opentextinput__count-characters .opentextinput__count-amount {
+      font-weight: 400;
+      font-family: @btn-family;
+    }
+}

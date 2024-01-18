@@ -1,0 +1,79 @@
+[data-globalaudio="true"] {
+    display:inline-block;
+    margin-left: 3rem;
+    padding: 0.5rem 0 0;
+}
+  
+  .globalaudio__player {
+    position: relative;
+    display: inline-block;
+    vertical-align: text-top;
+  
+    .globalaudio__playpause {
+      // .icon-video-play;
+    }
+  
+    // outer button only shown for tab order
+    .globalaudio__playpause {
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-radius: 5px;
+    }
+  
+    &.is-globalaudio-playing .globalaudio__playpause .icon {
+      .icon-video-pause;
+      &:before {
+        font-size: 1rem;
+      }
+    }
+  
+    &.is-globalaudio-paused .globalaudio__playpause .icon {
+      .icon-video-play;
+      &:before {
+        font-size: 1rem;
+      }
+    }
+
+   .globalaudio__controls button {
+      .icon {
+        box-shadow: #11111126 0px 5px 10px 0px;
+        padding: 0.5rem;
+        border-radius: 50%;
+        border: solid 3px @btn-color;
+        color: @btn-color;
+        background: #fff;
+      }
+
+
+      &:hover .icon {
+        border: solid 3px @btn-color-hover;
+        color: @btn-color-hover;
+      }
+    }
+  
+    .globalaudio__controls {
+      display: flex;
+      padding: 0.1em;
+  
+      button {
+        background: transparent;
+  
+        &.is-disabled {
+          color: rgba(16, 16, 16, 0.3);
+        }
+  
+        &:before {
+          font-size: 1.2em;
+          content: '' !important;
+          // moved into .icon div for accessiblity focus state
+        }
+      }
+    }
+  
+  }
+@media (max-width: 759px) {
+    .globalaudio__player .globalaudio__controls button .icon {
+        display: none;
+}
+}

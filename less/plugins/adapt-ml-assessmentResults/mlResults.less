@@ -1,0 +1,62 @@
+.mlassessmentresults {
+    position: initial !important;
+}
+.mlassessmentresults .assessmentresults__overlay {
+  background-color: #f2f3f6;
+}
+.mlassessmentresults .assessmentresults__overlay-text {
+  font-family:@title-family;
+}
+.mlassessmentresults .assessmentresults__overlay {
+  border-radius: 10px 10px 0 0;
+}
+
+.mlassessmentresults {
+  .assessmentresults__overlay {
+    &-inner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &-text {
+      margin: 1rem;
+    }
+
+    &-btn {
+      text-align: center;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  .assessmentresults__widget .btn__container {
+    width: 600px;
+    max-width: 100%;
+    margin: 1rem auto;
+    text-align: center;
+    float: none;
+  }
+}
+
+/* These change the results component */
+
+button.btn-text.assessmentresults__overlay-btn.js-assessment-overlay-btn {
+  min-width: 12rem;
+}
+button.btn-text.assessmentresults__return-to-menu-btn.js-return-to-menu-btn {
+  min-width: 12rem;
+  margin: 5px;
+}
+button.btn-text.assessmentresults__retry-btn.js-assessment-retry-btn {
+  min-width: 12rem;
+  margin: 5px;
+}
+button.btn-text.assessmentresults__exit-btn.js-exit-course-btn {
+  min-width: 12rem;
+  margin: 5px;
+}
+.assessmentresults__overlay-text {
+  text-align: center;
+}
+

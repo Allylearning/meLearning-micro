@@ -1,0 +1,195 @@
+.notify {
+  &__popup {
+    background: transparent;
+  }
+
+
+  &__popup-inner {
+    position: relative;
+    max-width: 53.75rem;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 5rem;
+    background-color: @notify;
+    color: @notify-inverted;
+    border-radius: @item-border-radius;
+    -webkit-box-shadow: 0px 3px 10px 1px rgba(153,153,153,0.3);
+    -moz-box-shadow: 0px 3px 10px 1px rgba(153,153,153,0.3);
+    box-shadow: 0px 3px 10px 1px rgba(153,153,153,0.3);
+    @media (max-width: @device-width-small) {
+      padding: 2rem 0.5rem 5rem;
+    }
+  }
+
+  &__content-inner {
+    margin: 1rem;
+    position: relative;
+  }
+
+  &__icon {
+    position: absolute;
+    top: -22px;
+    left: -11px;
+    padding: @icon-padding;
+    color: @primary-color;
+    .fa-icon;
+    .fas;
+    font-weight: 500;
+    font-size: xx-large;
+    &:before {
+      content: @fa-var-thumbs-up;
+    }
+    @media (max-width: @device-width-small) {
+      padding: @icon-padding 0.5rem;
+    }
+  }
+
+  &__popup.nofeedback {
+    .notify__icon {
+      display: none;
+    }
+    .notify__title {
+      margin-left: 0;
+      @media (max-width: 47.5rem) {
+        padding-right: 6rem;
+      }
+    }
+  }
+
+  .is-incorrect, .is-partially-correct {
+    .notify__icon {
+      transform: rotate(180deg);
+      top: -16px;
+    }
+  }
+
+  &__title {
+    margin-bottom: @notify-title-margin;
+    .notify-title;
+    text-align: left;
+    margin-left: 3rem;
+
+    @media (max-width: @device-width-medium) {
+      padding-right: unit(@icon-size + @btn-margin + @btn-padding, rem);
+
+      .dir-rtl & {
+        padding-right: inherit;
+        padding-left: unit(@icon-size + @btn-margin + @btn-padding, rem);
+      }
+    }
+
+    @media (max-width: @device-width-small) {
+      margin-left: 2.5rem;
+    }
+  }
+
+  &__body {
+    margin-bottom: @notify-body-margin;
+  }
+
+  &__instruction {
+    margin-bottom: @notify-instruction-margin;
+    .instruction-text;
+  }
+
+  &__body a,
+  &__instruction a {
+    .link-text;
+    color: @notify-link;
+
+    .no-touch &:hover {
+      color: @notify-link-hover;
+      .transition(color @duration ease-in);
+    }
+  }
+
+  &__btn-container {
+    margin-top: @btn-margin;
+  }
+
+  &__continue-btn {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: unset;
+    bottom: 0;
+    border-radius: 0 0 @item-border-radius @item-border-radius;
+    padding: 1rem;
+  }
+
+  &__btn-icon {
+    margin: @btn-margin / 2;
+    padding: @btn-padding / 2;
+    background-color: @notify-icon;
+    color: @notify-icon-inverted;
+    border-radius: 50%;
+
+    // .no-touch &:hover {
+    //   background-color: @notify-icon-hover;
+    //   color: @notify-icon-inverted-hover;
+    //   .transition(background-color @duration ease-in, color @duration ease-in;);
+    // }
+
+    .icon-label {
+      float: left;
+      margin-right: 0.5rem;
+    }
+
+    .icon {
+      float: right;
+    }
+  }
+
+  &__close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    border-radius: @item-border-radius;
+    margin: 0;
+
+    .no-touch &:hover {
+      background-color: @v2-hover-bg;
+      .icon {
+        color: @item-color;
+      }
+    }
+
+    .dir-rtl & {
+      right: inherit;
+      left: 0;
+    }
+  }
+
+  // hide icon in the visua11y extension
+  .notify__popup.is-visua11ysettings {
+    .notify__icon {
+      display: none;
+    }
+  }
+  .notify__popup.is-visua11ysettings .notify__popup-inner {
+    max-width: 36.5rem;
+    margin: 3rem auto;
+    background-color: #fff;
+    padding: 1rem 0.5rem;
+    border-radius: 10px;
+}
+}
+
+
+/* These fix the bookmarking extension */
+
+.notify__popup-type-prompt .notify__popup-inner {
+    padding: 2rem 1rem 2rem;
+    max-width: 30rem;
+}
+.notify__popup-type-prompt .notify__icon {
+    display: none;
+}
+.notify__popup-type-prompt .notify__title {
+    margin-left: 0rem;
+}
+button.btn-text.notify__btn.notify__btn-prompt.js-notify-btn-prompt {
+    min-width: 49% !important;
+}
+.notify__btn-container {
+    text-align-last: center;
+}

@@ -1,0 +1,107 @@
+@box-shadow: #fff;
+
+.hotgraphic {
+  &__pin:not(.has-pin-image) {
+    background-color: @item-color-inverted;
+    color: @item-color;
+    border-radius: 50%;
+    border: @item-color solid 3px;
+
+    // animation effect https://melearning.atlassian.net/browse/ACD001-78
+    &:not(.is-visited) {
+      transform: scale(1);
+      animation: pulse 2s infinite;
+    }
+
+    .no-touch &:hover {
+      background-color: @item-color-hover;
+      color: @item-color-inverted-hover;
+      animation: pulse 1s infinite;
+      .transition(background-color @duration ease-in, color @duration ease-in;);
+    }
+  }
+
+  .hotgraphic__pin .icon:before {
+    content:"\e947";
+    -webkit-text-stroke-width: thin;
+  }
+
+  .hotgraphic__pin:not(.has-pin-image):hover,
+  .no-touch .hotgraphic__pin:not(.has-pin-image):hover {
+    background-color: @item-color-inverted;
+  }
+  button.btn-icon.hotgraphic__pin.js-hotgraphic-item-click.hotgraphic__pin:not(.has-pin-image):hover {
+    color: @item-color;
+  }
+
+  .hotgraphic__pin .icon:before {
+    content:"\e947";
+    -webkit-text-stroke-width: thin;
+  }
+
+  &__pin:not(.has-pin-image).is-visited {
+    background-color: @visited;
+    color: @visited-inverted;
+  }
+
+  .hotgraphic__pin.has-pin-image {
+      background: transparent;
+  }
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+	}
+}
+
+/* These are alternative hotgraphic class to remove the image - use class: hotgraphic__noimage */
+
+.hotgraphic__noimage .hotgraphic-popup__item {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: -2rem;
+}
+.hotgraphic__noimage .hotgraphic-popup__item-image-container {
+    margin-left: 0rem;
+}
+.hotgraphic__noimage .hotgraphic-popup__item-image-container {
+    display: none;
+}
+.hotgraphic__noimage .hotgraphic-popup__item-content, .hotgraphic-popup__item-image-container {
+    width: 100%;
+}
+
+/* These are alternative hotgraphic class for a single clickable graphic - use class: hotgraphic_1 or hotgraphic__full */
+.hotgraphic_1 .hotgraphic__tile-item {
+    width: 100%;
+}
+.hotgraphic_1 button.btn-icon.hotgraphic__pin {
+    border: none;
+}
+.hotgraphic__full button.btn-icon.hotgraphic__pin {
+    width: 100%;
+    height: 100%;
+    border-radius: 0px;
+    opacity: 0;
+}
+
+.hotgraphic-popup__item-content {
+    width: 100%;
+}
+.hotgraphic__pin-number {
+    width: 20px;
+    height: 20px;
+}

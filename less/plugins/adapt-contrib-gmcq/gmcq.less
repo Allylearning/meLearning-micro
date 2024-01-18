@@ -1,0 +1,136 @@
+@media (max-width: 759px) {
+.gmcq-item {
+    position: relative;
+    width: 100% !important;
+}
+}
+.gmcq {
+  &-item__label {
+    margin: @item-margin;
+    border-radius: @item-border-radius;
+    border: 1px solid @v2-border;
+
+    img {
+      border-radius: @item-border-radius @item-border-radius 0 0;
+    }
+
+    .gmcq-item__option {
+      border-radius: 0 0 @item-border-radius @item-border-radius;
+    }
+  }
+
+  // -------------------------------------------------
+  // Layout #1
+  // --------------------------------------------------
+  &-item__option {
+    padding: @item-padding;
+    background-color: @white;
+    color: @font-color;
+    font-family: @title-family;
+    position: relative;
+    .icon {
+      color: @slate;
+    }
+  }
+
+  &-item__image-container {
+      position: relative;
+  }
+
+  &-item__image-opacity {
+    background-color: rgba(155, 155, 155, 0.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    .transition(all @duration ease-in;);
+  }
+
+  .no-touch &-item__label:not(.is-disabled):not(.is-selected):hover {
+    -webkit-box-shadow: 0px 3px 10px 1px rgba(153,153,153,0.3);
+    -moz-box-shadow: 0px 3px 10px 1px rgba(153,153,153,0.3);
+    box-shadow: 0px 3px 10px 1px rgba(153,153,153,0.3);
+
+  }
+
+  .no-touch &-item__label:not(.is-disabled):not(.is-selected):hover,
+  html:not(.a11y-disable-focusoutline) .gmcq-item__input:focus + &-item__label {
+    .gmcq-item__image-opacity {
+      display: block;
+    }
+  }
+
+  &-item__label.is-selected &-item__image-opacity {
+    background-color: rgba(155, 155, 155, 0.2);
+    display: block;
+  }
+
+  .no-touch &-item__label:not(.is-disabled):not(.is-selected):hover .gmcq-item__option,
+  html:not(.a11y-disable-focusoutline) .gmcq-item__input:focus + &-item__label {
+     .icon {
+       color: @item-color;
+     }
+     .transition(background-color @duration ease-in, color @duration ease-in;);
+  }
+
+  html:not(.a11y-disable-focusoutline) .gmcq-item__input:focus + &-item__label {
+      outline: 2px solid @item-color;
+  }
+
+  &-item__label.is-disabled .gmcq-item__option {
+    background-color: @disabled;
+    color: @disabled-inverted;
+  }
+
+  &-item__label.is-selected .gmcq-item__option {
+    // background-color: @item-color-selected;
+    // color: @item-color-inverted-selected;
+    .icon {
+      color: @item-color;
+    }
+  }
+
+  &-item__state {
+    min-height: @icon-size;
+    position: absolute;
+    top: 1.5rem;
+  }
+
+  &-item__text {
+    margin-top: @item-margin;
+    text-align: left;
+    margin-left: 2.5rem;
+  }
+  // --------------------------------------------------
+
+  // --------------------------------------------------
+  // Layout #2
+  // --------------------------------------------------
+  // &-item__option {
+  //   position: relative;
+  // }
+
+  // &-item__state {
+  //   position: absolute;
+  //   top: 50%;
+  //   left: @item-padding;
+  //   .transform(translateY(-50%));
+
+  //   .dir-rtl & {
+  //     left: inherit;
+  //     right: @item-padding;
+  //   }
+  // }
+
+  // &-item-text {
+  //   padding: @item-padding @item-padding @item-padding (@icon-size + (@item-padding * 2));
+
+  //   .dir-rtl & {
+  //     padding-left: @item-padding;
+  //     padding-right: @icon-size + (@item-padding * 2);
+  //   }
+  // }
+  // --------------------------------------------------
+}

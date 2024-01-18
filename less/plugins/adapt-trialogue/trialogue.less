@@ -1,0 +1,77 @@
+.trialogue__widget {
+    background-color: #f2f3f6;
+    border: solid 1px @platinum;
+    border-radius: 10px;
+}
+.trialogue__bottom-bar__buttons .btn-text {
+    background-color: @item-color;
+    color: #fff;
+    box-shadow: none;
+}
+.no-touch .trialogue__bottom-bar__buttons .btn-text:not(.is-disabled):not(.is-locked):hover {
+    background-color: @item-color-hover;
+    color: #fff;
+}
+.trialogue__bottom-bar {
+    background-color: rgb(255 255 255);
+    position: inherit;
+}
+.trialogue .dot {
+    background-image: initial;
+    background-color: @primary-color;
+}
+.trialogue__message-guest {
+    background-color: @primary-color;
+    color: #fff;
+}
+.trialogue__message-host {
+    background-color: #fff;
+    margin: 10px 0px;
+}
+.trialogue__messages-history {
+    padding-top: 0rem;
+}
+.trialogue__message {
+    padding-bottom: 0rem;
+}
+.trialogue__message-host, .trialogue__message-guest {
+    border-radius: 5px;
+}
+.trialogue__message.trialogue__message-host {
+    margin: 0px 10px 10px 10px;
+}
+.trialogue__messages-history, .trialogue__message {
+    flex: inherit;
+}
+.trialogue__bottom-bar__buttons {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.trialogue__message-sender, .trialogue__messages-history-sender {
+    font-weight: bold;
+}
+.trialogue__response-host {
+    background: @primary-color;
+    color: #fff;
+    border-radius: 5px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: 0.5rem;
+}
+.trialogue__response-host:before {
+    content: '';
+    position: absolute;
+    bottom: auto;
+    right: 10px;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent @primary-color transparent;
+    z-index: 1;
+    transform: rotate(90deg);
+    transform-origin: bottom;
+    padding-top: 15px;
+}

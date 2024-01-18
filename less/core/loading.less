@@ -1,0 +1,25 @@
+@loading-anim-delay: 0.16s;
+
+.loading {
+  background-color: fade(@shadow, 50%);
+  color: @shadow-inverted;
+
+  &__inner {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-indent: -9999rem;
+  }
+
+  &__inner {
+    background-image: url("assets/page-loading.gif");
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}

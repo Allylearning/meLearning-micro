@@ -1,0 +1,70 @@
+.hotgrid {
+    /* These fix the hotgrid */
+    .hotgrid__item {
+        width: 100%;
+        line-height: 0;
+    }
+    .hotgrid__item-btn .hotgrid__item-title, .hotgrid__item-btn .hotgrid__item-icon {
+        visibility: hidden;
+    }
+    .hotgrid-popup__item-image-container {
+        width: 60%;
+    }
+    .hotgrid__item-btn.is-css .hotgrid__item-image {
+        border: none;
+    }
+}
+
+.hotgrid-popup {
+    // Increase toolbar padding top so the browser outline of the
+    // item title is not hidden by toolbar
+    // --------------------------------------------------
+    &__inner {
+      padding-top: (@icon-size + (@icon-padding * 2)) + (@item-padding / 2);
+    }
+  
+    .hotgrid-popup__controls {
+      margin: 0;
+      padding: @btn-padding;
+  
+      .no-touch &:not(.is-disabled):not(.is-locked):hover {
+        background-color: @item-color;
+        color: @font-color-inverted;
+        .transition(background-color @duration ease-in, color @duration ease-in;);
+        .icon {
+          color: @font-color-inverted;
+          .transition(background-color @duration ease-in, color @duration ease-in;);
+        }
+      }
+    }
+
+    .hotgrid-popup__close {
+        padding: 1rem;
+        margin: 0;
+        border-radius: 0;
+    }
+  
+    &__item-title {
+      margin-bottom: @notify-title-margin;
+      .notify-title;
+    }
+  
+    &__item-body {
+      margin-bottom: @notify-body-margin;
+    }
+  
+    &__item-body a {
+      .link-text;
+      color: @notify-link;
+  
+      .no-touch &:hover {
+        color: @notify-link-hover;
+        .transition(color @duration ease-in);
+      }
+    }
+  
+    .hotgrid.has-img-zoom &__item-image-container {
+      .img-zoom();
+    }
+  }
+  

@@ -1,0 +1,82 @@
+.nav {
+  background-color: @nav;
+
+  // -webkit-box-shadow: 0 3px 10px 1px rgba(153,153,153,0.3);
+  // -moz-box-shadow: 0 3px 10px 1px rgba(153,153,153,0.3);
+  // box-shadow: 0 3px 10px 1px rgba(153,153,153,0.3);
+
+  &.has-scrolled {
+    -webkit-box-shadow: 0 3px 10px 1px #0000001a;
+    -moz-box-shadow: 0 3px 10px 1px #0000001a;
+    box-shadow: 0 3px 10px 1px #0000001a;
+  }
+
+  &__inner {
+    max-width: inherit;
+  }
+
+  &__logo {
+    float: left;
+
+    button {
+      padding: 0 @icon-padding;
+      display: block !important;
+    }
+
+    .company-logo {
+      background-repeat: no-repeat;
+      background-position: left center;
+      height: @navigation-height;
+      width: 175px;
+      background-size: contain;
+    }
+  }
+
+  &__drawer-btn:not(.pagelevelprogress__nav-btn) {
+    display: none;
+  }
+
+  .nav__pagelevelprogress-btn {
+    padding: 0;
+  }
+
+  &__btn {
+    background-color: transparent;
+    color: @slate;
+
+    .no-touch &:hover {
+      background-color: transparent;
+      color: @slate;
+      .transition(background-color @duration ease-in, color @duration ease-in;);
+    }
+
+    &.nav__drawer-btn {
+      .icon-label {
+        float: left;
+        margin-right: 10px;
+        font-family: @title-family;
+      }
+
+      .icon {
+        float: right;
+
+        &:before {
+          content: '';
+          background-image: url("assets/menu-open.svg");
+          height: @icon-size;
+          width: @icon-size;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
+}
+
+.location-menu {
+  .nav__logo {
+    button {
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+}

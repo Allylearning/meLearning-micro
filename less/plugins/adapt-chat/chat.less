@@ -1,0 +1,29 @@
+.chat {
+    .chat-text {
+        background-color: #f2f3f6;
+        border-radius: 10px;
+    }
+    .participant-0 .chat-text {
+        background-color: @primary-color;
+        color: #fff;
+    }
+
+    &__widget {
+        border: none;
+        border-radius: 5px;
+    }
+
+    .chat-icon-name {
+        min-width: fit-content;
+    }
+    
+    .chat-text .globalaudio__player .globalaudio__controls button {
+        top: -10px;
+        right: 5px;
+    }
+}
+@media (max-width: 759px) {
+.chat .chat-icon {
+    margin: 0 1rem 0 1rem;
+}
+}

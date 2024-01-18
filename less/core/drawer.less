@@ -1,0 +1,103 @@
+.drawer {
+  background-color: @drawer;
+
+  .drawer__holder {
+    height: 80%;
+  }
+
+  &__toolbar {
+    position: relative;
+    top: unset;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  &__tabs {
+    display: flex;
+    border-bottom: 3px solid @v2-border;
+    .drawer__tab {
+      flex: 1;
+      padding: 2rem 1rem;
+      border: 1px solid @v2-border;
+      background-color: @v2-hover-bg;
+      color: @slate;
+
+      &.is-selected {
+        border-top: 4px solid @primary-color;
+        color: @instructional-text;
+        border-radius: @item-border-radius;
+        -webkit-box-shadow: 0 3px 10px 1px rgba(153,153,153,0.3);
+        -moz-box-shadow: 0 3px 10px 1px rgba(153,153,153,0.3);
+        box-shadow: 0 3px 10px 1px rgba(153,153,153,0.3);
+      }
+
+      &:first-of-type {
+        border-left: 0;
+      }
+      &:last-of-type {
+        border-right: 0;
+      }
+    }
+  }
+
+  &__inner {
+    padding-top: 0;
+  }
+
+  .icon-label {
+    float: left;
+    margin: 4px;
+    margin-right: 8px;
+    font-family: @title-family;
+  }
+
+  .drawer__exit {
+    flex: 1;
+    .icon {
+      margin-top: 4px;
+      .u-float-left;
+      &:before {
+        content: '';
+        background-image: url('assets/exit-course.svg');
+        height: @icon-size;
+        width: @icon-size;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  .drawer__close {
+    flex: 1;
+    .icon {
+      .u-float-left;
+      margin-top: 4px;
+      &:before {
+        content: '';
+        background-image: url('assets/close-drawer.svg');
+        height: @icon-size;
+        width: @icon-size;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  .btn-icon {
+    float: right;
+    padding: 4px 10px;
+    cursor: pointer;
+  }
+
+
+  &__btn {
+    margin: @btn-margin / 2;
+    padding: @btn-padding / 2;
+    float: right;
+    background-color: transparent !important;
+    color: @slate;
+
+    .no-touch &:hover {
+      color: darken(@slate, 10%);
+      .transition(background-color @duration ease-in, color @duration ease-in;);
+    }
+  }
+}

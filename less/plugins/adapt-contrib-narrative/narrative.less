@@ -1,0 +1,221 @@
+// Hide this element as the normal slider is always shown
+.narrative__strapline {
+  display: none !important;
+}
+
+.narrative {
+  &:not(.items-are-full-width) .narrative__content {
+    display: flex;
+    border: 1px solid #F1F1F1;
+    border-radius: @item-border-radius @item-border-radius 0px 0px;
+    margin-left: 0;
+    width: 100%;
+
+    @media (min-width: @device-width-medium) {
+      border-radius: 0px @item-border-radius 0px 0px;
+      margin-left: 0;
+      width: 50%;
+      height: 400px;
+    }
+
+    &-inner {
+      overflow-y: auto;
+    }
+  }
+
+  &__slide-container {
+      width: 100%;
+      
+    @media (min-width: @device-width-medium) {
+        width: 50%;
+        margin-left: 0%;
+      }
+  }
+
+  &__content-item {
+    margin: 1rem 0 0 1rem;
+    height: 370px;
+    overflow: auto;
+  }
+
+  &__content-title {
+    margin-bottom: @item-title-margin;
+    .item-title;
+  }
+  
+  &__content-body {
+    margin-right: 0.5rem;
+  }
+
+  &__content-body a {
+    .link-text;
+  }
+
+  &__controls-container-right, &__controls-container-left {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    background-color: @v2-hover-bg;
+
+    .narrative__btn-icon {
+      color: @item-color;
+    }
+
+    .is-disabled.narrative__controls {
+      visibility: visible;
+      background-color: @disabled;
+      color: @disabled-inverted;
+      pointer-events: none;
+      .narrative__btn-icon {
+        color: @disabled-inverted;
+      }
+    }
+
+    &.is-disabled {
+      background-color: @disabled;
+    }
+  }
+
+  &__controls-container-right {
+    .u-float-right;
+    border-radius: 0 0 @item-border-radius 0;
+    .narrative__controls  {
+      border-radius: 0 0 @item-border-radius 0;
+    }
+  }
+
+  &__controls-container-left {
+    border-radius: 0 0 0 @item-border-radius;
+
+    .narrative__controls  {
+      border-radius: 0 0 0 @item-border-radius;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    color: @font-color-inverted;
+    position: relative;
+    top: 0;
+    z-index: unset;
+    transform: translateY(0);
+    color: @font-color;
+
+    &-right, &-left {
+      height: 100%;
+      width: 100%;
+    }
+
+    &-right {
+      justify-content: flex-end;
+
+      .dir-rtl & {
+        padding-left: inherit;
+        padding-right: 2%;
+      }
+
+      @media (min-width: @device-width-medium) {
+        justify-content: center;
+        padding-left: 2%;
+      }
+    }
+
+    &-left {
+      justify-content: flex-start;
+
+      @media (min-width: @device-width-medium) {
+        justify-content: center;
+      }
+    }
+
+    &-right .icon {
+    //.icon-arrow-right-2;
+    }
+
+    &-left .icon {
+      //.icon-arrow-left-2;
+    }
+
+    &-right .narrative__btn-text,
+    &-left .narrative__btn-text {
+      //color: @font-color;
+    }
+
+    &.u-visibility-hidden {
+      background-color: @disabled;
+    }
+
+    .no-touch &:hover {
+      background-color: @item-color;
+      color: @font-color-inverted;
+      .transition(background-color @duration ease-in, color @duration ease-in;);
+      .narrative__btn-icon {
+        color: @font-color-inverted;
+        .transition(background-color @duration ease-in, color @duration ease-in;);
+      }
+    }
+  }
+
+  &__indicators {
+    margin-top: 1rem;
+
+    @media (min-width: @device-width-medium) {
+      width: 100%;
+    }
+  }
+
+  &__progress {
+    background-color: @silver;
+    border-radius: 50%;
+
+    .no-touch &:not(.is-selected):hover {
+      background-color: @stone;
+      .transition(background-color @duration ease-in);
+    }
+  }
+
+  &__progress.is-selected {
+    background-color: @item-color;
+  }
+
+  &__strapline-btn {
+    text-align: left;
+    background-color: @item-color;
+    color: @item-color-inverted;
+
+    .no-touch &:hover {
+      background-color: @item-color-hover;
+      color: @item-color-inverted-hover;
+    }
+
+    .dir-rtl & {
+      text-align: right;
+    }
+  }
+
+  &__strapline-btn.is-visited {
+    background-color: @visited;
+    color: @visited-inverted;
+  }
+
+  &__slider-image-container {
+    img {
+      height: 400px;
+      object-fit: cover;
+      border-radius: @item-border-radius 0 0 0;
+
+      @media (max-width: @device-width-medium) {
+        object-fit: contain;
+        width: 100%;
+        height: auto;
+      }
+    }
+
+  }
+
+  &.has-img-zoom &__slider-image-container {
+    .img-zoom();
+  }
+}

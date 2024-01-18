@@ -1,0 +1,484 @@
+// --------------------------------------------------
+// --------------------------------------------------
+// contentObject
+// --------------------------------------------------
+// --------------------------------------------------
+// Hide nav back button
+// --------------------------------------------------
+.hide-nav-back-btn .nav__back-btn {
+  .u-display-none;
+}
+
+// --------------------------------------------------
+// --------------------------------------------------
+// Block
+// --------------------------------------------------
+// --------------------------------------------------
+
+// Custom class added to block
+// Aligns child components centrally on the vertical axis
+// --------------------------------------------------
+.block.align-vert-center .component__container {
+  align-items: center;
+}
+
+
+
+.block:not(.show-title) {
+    .block__title {
+      display: none;
+    }
+}
+
+.article:not(.show-title) {
+    .article__title {
+      display: none;
+    }
+}
+
+// Reverses the visual layout of the components above the medium breakpoint
+// e.g. Left layout components would still render first in the DOM order
+// but visually appear on the right hand side above the medium breakpoint. The
+// components woud vertically stack as per the DOM order below the breakpoint
+// --------------------------------------------------
+.block.reverse-desktop-order .component {
+  @media (min-width: @device-width-medium) {
+    &__container {
+      flex-direction: row-reverse;
+    }
+
+    &.is-left {
+      padding-right: inherit;
+      padding-left: @component-padding-hoz;
+
+      .dir-rtl & {
+        padding-left: inherit;
+        padding-right: @component-padding-hoz;
+      }
+    }
+
+    &.is-right {
+      padding-left: inherit;
+      padding-right: @component-padding-hoz;
+
+      .dir-rtl & {
+        padding-right: inherit;
+        padding-left: @component-padding-hoz;
+      }
+    }
+  }
+}
+
+// Extend width of block to max page width
+// --------------------------------------------------
+.block.extend-container .block__inner {
+  max-width: @max-width;
+}
+
+// Remove top padding from block
+// --------------------------------------------------
+.block.remove-top-padding .block__inner {
+  padding-top: 0;
+}
+
+// Remove bottom padding from block
+// --------------------------------------------------
+.block.remove-bottom-padding .block__inner {
+  padding-bottom: 0;
+}
+
+// --------------------------------------------------
+// Background color mixin
+// Add to block to enable
+// e.g. 'block-color black'
+// Note: both arguments must be predefined variables
+// --------------------------------------------------
+.block-color-mixin(transparent-light, black);
+.block-color-mixin(transparent-dark, white);
+.block-color-mixin(black, white);
+.block-color-mixin(background, background-inverted);
+
+.block-color-mixin(@color, @color-inverted) {
+
+.block-color.@{color} {
+  background-color: @@color;
+  color: @@color-inverted;
+
+  .block,
+  .component {
+    &__title,
+    &__body a,
+    &__instruction a {
+      color: @@color-inverted;
+    }
+  }
+
+  .pagelevelprogress {
+    &__indicator {
+      border-color: @@color-inverted;
+    }
+    &__indicator-inner {
+      background-color: @@color;
+    }
+    &__indicator-bar {
+      background-color: @@color-inverted;
+    }
+  }
+
+  .narrative {
+    &__progress {
+      background-color: fade(@@color-inverted, 50%);
+    }
+
+    &__progress.is-selected {
+      background-color: @@color-inverted;
+    }
+  }
+}
+
+}
+
+// --------------------------------------------------
+// Vertically align two components. Useful for when you have a graphic next to a block of text.
+
+.block {
+  .component__container {
+    align-items: center;
+  }
+}
+
+// Adds a "Call to action" button within a component.
+
+.component {
+  .btn-text {
+    font-family:@title-family;
+    text-decoration: none;
+    color: @btn-color-inverted;
+    text-align: center;
+  }
+}
+a.btn-text {
+  font-family:@title-family;
+  width: 100%;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: @btn-color-inverted;
+}
+
+// Micro-learning styling
+html#adapt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #28292d;
+}
+.nav {
+    position: absolute;
+    z-index: 80;
+    background-color: transparent;
+    max-width: 400px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.nav__logo {
+    display: none;
+}
+.nav.has-scrolled {
+    box-shadow: none;
+}
+.nav__inner {
+    padding: 0.5rem 0.5rem 0 0;
+    margin-right: 0;
+}
+
+.page__header {
+    display: none;
+}
+body {
+    width: 400px;
+    height: 100vh;
+    max-height: 700px;
+    border-radius: 20px;
+    box-shadow: #00000054 10px 10px;
+    overflow-y: clip;
+    position: relative;
+}
+#wrapper {
+    padding-top: 0;
+}
+.block {
+    z-index: 1;
+}
+.component__header {
+    pointer-events: none;
+}
+.component .btn-text {
+    pointer-events: all;
+}
+.block.divider-3 {
+    position: fixed;
+    padding: 0;
+    bottom: 0;
+    z-index: 0;
+}
+.pagenav__btn {
+    margin: 0;
+    padding: 0;
+    border-radius: 50% !important;
+    height: 50px;
+    width: 50px;
+}
+.block__inner {
+    padding: 2rem 1.5rem;
+}
+.trialogue__widget {
+    display: flex;
+    min-height: 280px;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #f2f3f6;
+    overflow-y: scroll;
+    max-height: 60vh;
+    overflow-x: hidden;
+}
+
+.pagenav__btn-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pagenav__btn-text {
+    min-width: auto;
+}
+.pagenav__btn-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 16rem;
+    position: relative;
+    top: 50px;
+    scale: 1.8;
+}
+button.pagenav__btn.icon-is-left.js-pagenav-btn span.pagenav__btn-inner:before {
+    content: '\e96b';
+    font-family: 'vanilla';
+}
+
+button.pagenav__btn.icon-is-right.js-pagenav-btn span.pagenav__btn-inner:before {
+    content: '\e96c';
+    font-family: 'vanilla';
+}
+@media (min-width: 520px) {
+button.pagenav__btn.is-locked.is-disabled.icon-is-right.js-pagenav-btn span.pagenav__btn-inner:before {
+    content: 'Interactivity required to proceed' !important;
+    font-family: 'satoshi';
+    color: #5b5e62;
+    font-size: 8px;
+    font-weight: bold;
+}
+}
+
+button.pagenav__btn.is-locked.is-disabled.icon-is-right.js-pagenav-btn:disabled {
+    background: none;
+}
+.pagelevelprogress__nav-btn {
+    display: none;
+}
+.component.is-left {
+    padding: 0;
+    width: 100%;
+}
+.component.is-right {
+    padding: 0;
+    width: 100%;
+}
+@media (max-width: 520px) {
+body {
+    width: 100%;
+    height: 100vh;
+    max-height: 100%;
+    border-radius: 0;
+    box-shadow: #00000054 10px 10px;
+}
+}
+@media (max-width: 520px) {
+.pagenav__btn-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    gap: 1rem;
+    position: relative;
+    top: 50px;
+    scale: 1.8;
+    width: auto;
+    z-index: 0;
+    pointer-events: all;
+}
+}
+@media (max-width: 520px) {
+.block.divider-3 {
+    display: flex;
+    position: fixed;
+    padding: 0;
+    align-items: flex-end;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    bottom: 50px;
+    right: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+}
+.page.has-bg-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+.vimeo__video {
+    position: relative;
+    height: 100vh;
+    padding: 0 !important;
+}
+.vimeo__video iframe {
+    border-radius: 0;
+    max-height: 700px;
+    background: #28292d;
+}
+.vimeo__block {
+    z-index: 0;
+    padding: 0;
+}
+.vimeo__block .block__inner {
+    padding: 0;
+}
+div#player {
+    width: 100vh;
+    height: calc(100vh);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overflow-y: auto;
+    touch-action: pan-y!important;
+}
+@media (max-width: 520px) {
+.pagenav__widget {
+    position: relative;
+    display: flex;
+    width: 60vw;
+}
+}
+@media (max-width: 520px) {
+.pagenav__btn {
+    margin: 0;
+    padding: 0;
+    border-radius: 0 !important;
+    height: 100vh;
+    width: 50%;
+    opacity: 0;
+}
+}
+@media (max-width: 520px) {
+.pagenav__btn-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    gap: 0;
+    position: relative;
+    top: 50px;
+    scale: 2;
+    width: 100VW;
+    z-index: 10;
+    pointer-events: all;
+}
+}
+.notify__close-btn {
+    display: none;
+}
+.notify__popup {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0 !important;
+    max-width: 400px;
+    height: 100vh !important;
+    position: fixed;
+    bottom: 0;
+    top: 0;
+}
+.notify__popup-container {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+}
+
+.notify__popup-inner {
+  width: 352px;
+}
+@media (max-width: 520px) {
+  .notify__popup {
+    max-width: none;
+}  
+}
+@media (max-width: 520px) {
+.notify__popup-inner {
+    width: 520px;
+    margin: 1.5rem;
+}
+}
+@media (max-width: 520px) {
+.shadow {
+    display: none !important;
+}
+}
+.shadow {
+    max-width: 400px;
+    height: 700px;
+    border-radius: 20px;
+}
+@media (max-width: 520px) {
+.notify {
+    pointer-events: none;
+}
+}
+.mlassessmentresults .assessmentresults__overlay {
+    display: none;
+}
+button.btn-text.assessmentresults__return-to-menu-btn.js-return-to-menu-btn {
+    display: none;
+}
+[data-globalaudio="true"] {
+    opacity: 0;
+}
+.articlemain {
+    pointer-events: none;
+}
+.component__widget {
+    pointer-events: all;
+}
+.notify__continue-btn {
+    pointer-events: all;
+}
+.component__widget.graphic__widget {
+    pointer-events: none;
+}

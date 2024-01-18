@@ -1,0 +1,145 @@
+.hotgraphic, .hotgrid  {
+  .notify__popup-inner {
+    padding: 1rem 0 0;
+  }
+  .notify__content-inner {
+    margin: 0;
+  }
+  .notify__icon {
+    display: none;
+  }
+}
+
+.hotgraphic-popup, .hotgrid-popup {
+  // --------------------------------------------------
+  // Increase toolbar padding top so the browser outline of the
+  // item title is not hidden by toolbar
+  // --------------------------------------------------
+  &__inner {
+    padding: 2rem;
+  }
+  // --------------------------------------------------
+
+  &__toolbar {
+    top: unset;
+    bottom: 0;
+    position: static;
+    margin-top: 2rem;
+
+    &.hide-pagination {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__nav {
+    width: 100%;
+  }
+
+  &__close {
+    top: 0;
+    right: 2rem;
+    position: absolute;
+    color: @slate;
+    background-color: transparent;
+    .no-touch &:hover {
+      background-color: @v2-hover-bg;
+      .icon {
+        color: @item-color;
+      }
+    }
+    .icon {
+      float: right;
+    }
+    .icon-label {
+      float: left;
+      margin-right: 0.5rem;
+      font-family: @title-family;
+    }
+  }
+
+  &__controls {
+    background-color: transparent;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    background-color: @v2-hover-bg;
+    border: 1px solid #F1F1F1;
+    color: @font-color;
+
+    &.next {
+      border-radius: 0 0 @item-border-radius 0;
+      .icon {
+        color: @item-color;
+        &:before {
+          content: "\e961";
+          margin-top: -3px;
+        }
+      }
+    }
+    &.back {
+      border-radius: 0 0 0 @item-border-radius;
+      .icon {
+        color: @item-color;
+        &:before {
+          content: "\e960";
+          margin-top: -3px;
+        }
+      }
+    }
+    &.is-disabled {
+      visibility: visible;
+      background-color: @disabled;
+      color: @disabled-inverted;
+      pointer-events: none;
+      .icon {
+        color: @disabled-inverted;
+      }
+    }
+
+    .no-touch &:hover {
+      background-color: @item-color;
+      color: @font-color-inverted;
+      .transition(background-color @duration ease-in, color @duration ease-in;);
+      .icon {
+        color: @font-color-inverted;
+        .transition(background-color @duration ease-in, color @duration ease-in;);
+      }
+    }
+  }
+
+  &__item-image-container {
+    margin-top: 2.5rem;
+  }
+
+  &__count {
+    display: none;
+  }
+
+  &__item-title {
+    margin-bottom: @notify-title-margin;
+    .notify-title;
+    color: @instructional-text;
+  }
+
+  &__item-body {
+    margin-bottom: @notify-body-margin;
+  }
+
+  &__item-body a {
+    .link-text;
+    color: @notify-link;
+
+    .no-touch &:hover {
+      color: @notify-link-hover;
+      .transition(color @duration ease-in);
+    }
+  }
+
+  .hotgraphic.has-img-zoom &__item-image-container {
+    .img-zoom();
+  }
+}
+button.btn-icon.hotgraphic-popup__close.js-hotgraphic-popup-close {
+    padding: 0.5rem;
+    border-radius: 4px;
+}

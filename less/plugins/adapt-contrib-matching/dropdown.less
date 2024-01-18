@@ -1,0 +1,108 @@
+.dropdown {
+  &__btn {
+    position: relative;
+    padding: @item-padding (@icon-size + (@item-padding * 2)) @item-padding @item-padding;
+    line-height: @body-line-height;
+    text-align: left;
+    background-color: @white;
+    color: @font-color;
+    border-radius: @item-border-radius;
+    border: 1px solid @matching-border;
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 1px;
+      height: 100%;
+      right: 3.5rem;
+      top: 0;
+      background-color: @matching-border;
+    }
+
+    .no-touch &:not(.is-disabled):not([aria-expanded="true"]):hover,
+    html:not(.a11y-disable-focusoutline) &:focus {
+      background-color: @v2-hover-bg;
+      -webkit-box-shadow: 0px 3px 10px 1px rgba(153,153,153,0.3);
+      -moz-box-shadow: 0px 3px 10px 1px rgba(153,153,153,0.3);
+      box-shadow: 0px 3px 10px 1px rgba(153,153,153,0.3);
+
+      .dropdown__icon {
+        color: @item-color;
+      }
+    }
+
+    html:not(.a11y-disable-focusoutline) &:focus  {
+        outline: 2px solid @item-color;
+    }
+
+    .dir-rtl & {
+      padding-right: @item-padding;
+      padding-left: @icon-size + (@item-padding * 2);
+      text-align: right;
+    }
+  }
+
+  &__btn.is-disabled {
+    background-color: @disabled;
+    color: @disabled-inverted;
+  }
+
+  &__btn[aria-expanded="true"] {
+    background-color: @platinum;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    right: @item-padding;
+    .transform(translateY(-50%));
+
+    .dir-rtl & {
+      right: inherit;
+      left: @item-padding;
+    }
+  }
+
+  &-item {
+    padding: @item-padding;
+    background-color: @white;
+    color: @font-color;
+    border-bottom: 1px solid @platinum;
+
+    .no-touch &:not(:focus):not([aria-selected="true"]):hover {
+      background-color: @platinum;
+      .transition(background-color @duration ease-in, color @duration ease-in;);
+    }
+
+    &:last-child {
+      border-radius: 0 0 @item-border-radius @item-border-radius;
+    }
+  }
+
+  &-item {
+    &:focus,
+    &[aria-selected="true"] {
+      // This code can be used to style a non-native dropdown as closely
+      // as possible to the default browser settings
+      // background-color: Highlight;
+      // background-color: -webkit-focus-ring-color;
+      // color: white;
+
+        background-color: @platinum;
+    }
+  }
+
+  &-list {
+    -webkit-box-shadow: 0px 3px 10px 1px rgba(153,153,153,0.3);
+    -moz-box-shadow: 0px 3px 10px 1px rgba(153,153,153,0.3);
+    box-shadow: 0px 3px 10px 1px rgba(153,153,153,0.3);
+    border-bottom: 1px solid rgba(153,153,153,0.2);
+  }
+}
+/* These fix the matching question component */
+
+ul.dropdown__list.js-dropdown-list {
+    border: solid 2px #e2e3e6;
+    border-radius: 5px;
+    box-shadow: #11111112 0px 0px 10px;
+}

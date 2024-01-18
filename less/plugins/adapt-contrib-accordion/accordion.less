@@ -1,0 +1,106 @@
+.accordion {
+  &-item {
+    margin-bottom: @item-margin;
+    border: 1px solid @v2-border;
+    border-radius: 10px;
+    background: #fff;
+
+    &:hover {
+      -webkit-box-shadow: 0px 3px 10px 1px rgba(153,153,153,0.3);
+      -moz-box-shadow: 0px 3px 10px 1px rgba(153,153,153,0.3);
+      box-shadow: 0px 3px 10px 1px rgba(153,153,153,0.3);
+    }
+  }
+
+  &-item__btn {
+    position: relative;
+    padding: 1.5rem;
+    padding-left: @icon-size + (@item-padding * 2);
+    text-align: left;
+    background-color: @white;
+    color: @font-color;
+    border-radius: 10px;
+
+    .no-touch &:not(.is-selected):hover {
+      background-color: @v2-hover-bg;
+
+
+      .icon {
+        transform: rotate(90deg);
+      }
+
+      .transition(background-color @duration ease-in, color @duration ease-in;);
+    }
+
+    .dir-rtl & {
+      padding-right: @item-padding;
+      padding-left: @icon-size + (@item-padding * 2);
+      text-align: right;
+    }
+  }
+
+
+  &-item__btn.is-selected {
+    .icon {
+      color: @item-color;
+    }
+  }
+
+  &-item__btn.is-visited {
+    .icon:before {
+        content: "\e944";
+        border-radius: 50%;
+        background-color: @primary-color;
+        color: #fff;
+        font-size: small;
+        padding: 6px 1px 0px 2px;
+        min-height: 25px;
+        min-width: 25px;
+        -webkit-text-stroke: thick;
+        // .transform(translateY(0));
+    }
+    .icon {
+        transform: rotate(0) !important;
+    }
+  }
+
+  &-item__icon {
+    position: absolute;
+    top: 50%;
+    left: @item-padding;
+    .transform(translateY(-50%));
+
+    .icon {
+      width: @icon-size;
+      height: @icon-size;
+      transition-duration: 0.5s;
+
+      &:before {
+        color: @primary-color;
+      }
+    }
+
+    .dir-rtl & {
+      right: inherit;
+      left: @item-padding;
+    }
+  }
+
+  &-item__content {
+    padding: @item-padding;
+    background-color: @font-color-inverted;
+    color: @font-color;
+    border-radius: 10px;
+  }
+
+  &-item-body a {
+    .link-text;
+  }
+
+  &.has-img-zoom &-item-image-container {
+    .img-zoom();
+  }
+}
+.accordion-item__body-inner {
+    padding: 0rem 1rem;
+}

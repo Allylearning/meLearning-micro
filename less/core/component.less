@@ -1,0 +1,62 @@
+.component {
+  &__title {
+    margin-bottom: @component-title-margin;
+    .component-title;
+    color: @heading-color;
+
+    &.has-audio {
+      .component__title-inner {
+        margin-right: (@icon-size + 1rem);
+      }
+    }
+
+  }
+
+  &__body {
+    margin-bottom: @component-body-margin;
+  }
+
+  &__instruction {
+    margin-bottom: @component-instruction-margin;
+    .instruction-text;
+  }
+
+  &__body a,
+  &__instruction a {
+    .link-text;
+  }
+
+  @media (max-width: @device-width-medium) {
+    &.is-left {
+      padding-bottom: @block-padding-ver;
+    }
+  }
+  .component__instruction {
+    color: inherit !important;
+  }
+// taken from old >=5.13 FW code
+    @media (min-width: @device-width-medium) {
+        &.is-left {
+            padding-right: @component-padding-hoz;
+            width: 50%;
+
+            .dir-rtl & {
+            padding-right: inherit;
+            padding-left: @component-padding-hoz;
+            }
+        }
+
+        &.is-right {
+            margin-left: auto;
+            padding-left: @component-padding-hoz;
+            width: 50%;
+
+            .dir-rtl & {
+            margin-left: inherit;
+            margin-right: auto;
+            padding-left: inherit;
+            padding-right: @component-padding-hoz;
+            }
+        }
+    }
+}

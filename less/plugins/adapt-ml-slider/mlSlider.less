@@ -1,0 +1,133 @@
+.rangeslider__handle {
+  background-color: @primary-color !important;
+}
+
+.slider {
+  // --------------------------------------------------
+  // Numbers
+  // --------------------------------------------------
+  &__number-container {
+    min-height: 2.5rem;
+    font-family: @title-family;
+  }
+
+  &__number,
+  &__number-selection,
+  &__number-model-answer {
+    height: 2.5rem;
+    width: 2.5rem;
+    line-height: 2.5;
+    text-align: center;
+    border-radius: 50%;
+    font-weight: @font-weight-bold;
+    color: @instructional-text;
+  }
+
+  &__widget:not(.is-disabled) .slider__number {
+    cursor: pointer;
+  }
+
+  &__number-selection {
+    //background-color: @ice;
+    //color: @slate;
+    //z-index: 5;
+  }
+
+  &__number-model-answer {
+    background-color: @item-color;
+    color: @item-color-inverted;
+    z-index: 10;
+  }
+  // --------------------------------------------------
+
+  // --------------------------------------------------
+  // Scale
+  // --------------------------------------------------
+  &__scale-container {
+    margin-top: @item-margin * 2;
+    margin-bottom: @item-margin * 2;
+    background-color: lighten(@black, 75%);
+    height: 0;
+  }
+
+  &__scale-notch {
+    background-color: @disabled;
+    position: absolute;
+    top: -5px;
+    height: 1.75rem;
+    width: 1.75rem;
+    background-image: none;
+    border: 0;
+    border-radius: 50%;
+    .transform(translateX(-50%));
+
+    &.passed {
+      background-color: @item-color;
+    }
+  }
+
+  .inrange {
+    background-color: @item-color;
+  }
+  // --------------------------------------------------
+
+  // --------------------------------------------------
+  // Slider bar
+  // --------------------------------------------------
+  &__item {
+    margin-bottom: @item-margin * 4;
+  }
+  // --------------------------------------------------
+}
+
+// --------------------------------------------------
+// Rangeslider
+// --------------------------------------------------
+.rangeslider {
+  background-color: @disabled;
+
+  &--horizontal {
+    box-shadow: none;
+    height: 1rem;
+  }
+
+  &__fill {
+    background-color: @item-color;
+    box-shadow: none;
+  }
+
+  &__handle {
+    background-image: none;
+    border: 0;
+    box-shadow: 0 2px 5px fade(@black, 30%);
+    height: 1.75rem;
+    width: 1.75rem;
+  }
+
+  &__handle:after {
+    background-image: none;
+  }
+
+  &--horizontal .rangeslider__handle {
+    top: -0.4rem;
+    height: 1.9rem;
+    width: 1.9rem;
+    margin-left: -1px;
+  }
+}
+
+// --------------------------------------------------
+// Rangeslider focus styles
+// --------------------------------------------------
+input[type='range']:focus + .rangeslider .rangeslider__handle {
+  html:not(.a11y-disable-focusoutline) & {
+    box-shadow: 0 2px 5px fade(@black, 60%);
+    outline: 3px solid @item-color;
+    outline-offset: 3px;
+  }
+
+  html.a11y-disable-focusoutline & {
+    box-shadow: 0 2px 5px fade(@black, 30%);
+  }
+}
+// --------------------------------------------------

@@ -1,0 +1,65 @@
+// Quick hack to make the 2nd hint item that is created for the Hotgraphic disappear
+.hotgraphic .hint:nth-child(even) {
+    display: none;
+}
+
+.hint {
+    /* These fix the hint extension */
+    .hint__btn.is-open .icon:before {
+        content: "\e945";
+        -webkit-text-stroke-width: medium;
+    }
+    .hint__btn .icon:before {
+        content: "\e949";
+        color: @btn-color;
+        font-size: 1rem;
+    }
+
+    .no-touch .hint__btn:hover {
+        background-color: #f9f9f9;
+    }
+    .hint__widget {
+        top: 1.25rem;
+        right: 1.25rem;
+        padding: 1rem;
+        background-color: #fff;
+        border: none;
+        border-radius: 5px;
+    }
+    .hint__btn {
+        border-radius: 5px;
+        padding: 0;
+        border: 0;
+        background-color: #fff;
+
+        
+        .icon {
+            padding: .5rem;
+            border-radius: 50%;
+            border: 3px solid @btn-color;
+            box-shadow: #11111126 0px 5px 10px 0px;
+        }
+
+        &:hover {
+            background-color: #fff;
+            color: @btn-color;
+
+            .icon {
+                border: 3px solid @btn-color-hover;
+                color: @btn-color-hover;
+                &:before {
+                    color: @btn-color-hover;
+                }
+            }
+        }
+    }
+    .hint__item-title {
+        color:  @item-color;
+    }
+        
+}
+@media (max-width:759px) {
+    .hint .hint__btn .icon {
+        box-shadow: none;
+}
+}

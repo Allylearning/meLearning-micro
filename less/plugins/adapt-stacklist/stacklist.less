@@ -1,0 +1,35 @@
+.stacklist {
+    .stacklist__button {
+        left: 0;
+        right: 0;
+    }
+    
+    /* These fix the stacklist component */
+    .stacklist__item {
+        position: relative;
+        padding: 0.5rem 1rem;
+        margin-bottom: 1rem;
+        background-color: #f2f3f6;
+        color: @slate;
+        border: solid @platinum 1px;
+        border-radius: 4px;
+      }
+
+    .stacklist__button button {
+        line-height: unset;
+        background-color: @primary-color;
+        color: @font-color-inverted;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        min-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .stacklist__inner.component__inner {
+        overflow-x: clip;
+    }
+
+    .stacklist__item {
+        text-align-last: center;
+    } 
+}

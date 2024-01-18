@@ -1,0 +1,37 @@
+.resources {
+
+  &__filter-btn {
+    padding: @item-padding (@item-padding / 2);
+    .resources-filter-btn;
+    background-color: #FBFBFB;
+    font-family: @body-family;
+
+    .no-touch &:not(.is-disabled):not(.is-selected):hover {
+
+      .transition(background-color @duration ease-in, color @duration ease-in;);
+    }
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  &__filter-btn.is-selected {
+    color: @item-color;
+    position: relative;
+    font-weight: bold;
+    &:after {
+      content: '';
+      width: 25%;
+      height: @item-border-radius;
+      background-color: @item-color;
+      position: absolute;
+      bottom: 0;
+      left: 24px;
+    }
+  }
+
+  &__item-btn {
+    text-decoration: none;
+  }
+}

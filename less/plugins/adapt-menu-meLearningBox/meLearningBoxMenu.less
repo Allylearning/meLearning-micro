@@ -1,0 +1,64 @@
+.meLearningBox {
+  max-width: inherit;
+  .l-container-padding(@menu-padding-ver, @menu-padding-hoz);
+
+  &.has-bg-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+  }
+
+  &__header.has-bg-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+  }
+  
+  .meLearningBoxMenu__instruction {
+    font-family: @title-family;
+  }
+  
+  .menu__header-inner.meLearningBoxMenu__header-inner {
+    align-items: center;
+  }
+  .meLearningBoxMenu__title {
+    font-size: 2rem;
+  }
+
+  &__header-inner {
+    .l-container-padding(@menu-header-padding-ver, @menu-header-padding-hoz);
+    align-items: center;
+  }
+
+  &__title {
+    margin-bottom: @menu-title-margin;
+    .menu-title;
+    color: inherit;
+  }
+
+  &__subtitle {
+    margin-bottom: @menu-subtitle-margin;
+    .menu-subtitle;
+  }
+
+  &__body {
+    margin-bottom: @menu-body-margin;
+    .menu-body;
+  }
+
+  &__instruction {
+    margin-bottom: @menu-instruction-margin;
+    .menu-instruction;
+  }
+
+  &__body a,
+  &__instruction a {
+    .link-text;
+  }
+}
+.menu__header-inner.meLearningBoxMenu__header-inner {
+    align-items: center;
+}
+.menu__title.meLearningBoxMenu__title {
+    color: inherit !important;
+}

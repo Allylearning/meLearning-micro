@@ -1,0 +1,75 @@
+.choose {
+    .choose__item-choice {
+        flex-grow: 1;
+        margin: 0 0.5rem;
+    }
+    .choose__item-label {
+        background-color: #fff;
+        color: #222222;
+        font-family: @btn-family;
+        border-radius: 5px;
+        padding: 0.5rem;
+        margin: 0.5rem;
+        box-shadow: rgba(153, 153, 153, 0.3) 0px 3px 10px 1px;
+        border-radius: 5px;
+        text-align: center;
+        flex-grow: 1;
+    }
+    .choose__item-choices {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .choose__item-choices {
+        padding: 0;
+    }
+    .choose__item-text {
+        padding: 1rem 0;
+    }
+    .choose__item-choice.is-selected label {
+        background-color: @item-color;
+        color: #fff;
+    }
+    .choose__item-choice label:hover {
+        background: #e2e3e6;
+        color: #222222;
+    }
+    .choose__item-choice.is-selected label:hover  {
+        background-color: @item-color-hover;
+        color: #fff;
+    }
+
+    .choose__widget.show-user-answer .choose__item-state {
+        display: none;
+    }
+    .choose__replace {
+        border: 1px #e2e3e6 solid;
+        background-color: #f2f3f6;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        margin: 0 0.5rem;
+    }
+}
+
+html:not(.a11y-disable-focusoutline) .choose__item-input:focus-visible + .choose__item-label {
+    outline: solid 3px @item-color;
+    outline-offset: 4px;
+}
+
+.choose__widget.show-user-answer .is-incorrect .choose__item-choice label, .choose__widget.show-user-answer .is-correct .choose__item-choice label {
+    background-color: #e2e3e6;
+}
+.choose__widget.show-user-answer .choose__item.is-correct .choose__item-choice.is-selected label {
+    background-color: #fff;
+    color: #222;
+}
+.choose__widget.show-user-answer .choose__item.is-incorrect .choose__item-choice.is-selected label {
+    background-color: #fff;
+    color: #222;
+}
+
+@media (max-width: 759px) {
+    .choose .choose__item-choice {
+        width: 100% !important;
+        margin: 0rem;
+    }
+    }

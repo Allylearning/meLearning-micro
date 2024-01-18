@@ -1,0 +1,40 @@
+.dnd-multiple__items {
+    padding: 0.5rem 0.25rem;
+}
+.dnd-multiple__dropitem {
+    background-color: #f2f3f6;
+    border: solid 1px #e2e3e7;
+    border-radius: 10px;
+    min-height: 4rem !important;
+}
+.dnd-multiple__dragitem {
+    background-color: #fff;
+    border: solid 1px #d1d4de;
+    border-radius: 5px;
+}
+.dnd-multiple__item-title {
+    margin: 1rem 0;
+    font-family: @title-family;
+    text-align: center;
+    min-height: 3rem;
+    display: grid;
+    align-items: center;
+    font-weight: 400;
+}
+.dnd-multiple__dragitem__correct-icon .icon:before, .dnd-multiple__dragitem__incorrect-icon .icon:before {
+    color: @primary-color;
+}
+
+.dnd-multiple__dropitem {
+    overflow: scroll;
+    max-height: 400px;
+    padding: 0.5rem;
+}
+.dnd-multiple__dragitem.is-incorrect {
+    background: #e2e3e6;
+}
+.dnd-multiple__dragitem__image-container {
+    background-size: cover !important;
+    background-position: center !important;
+    border-radius: 4px;
+}

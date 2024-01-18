@@ -1,0 +1,64 @@
+.mcq-item {
+  &__label {
+    margin-bottom: @item-margin / 2;
+    background-color: @white;
+    color: @font-color;
+    border-radius: @item-border-radius;
+    -webkit-box-shadow: 0px 3px 10px 1px rgba(153,153,153,0.3);
+    -moz-box-shadow: 0px 3px 10px 1px rgba(153,153,153,0.3);
+    box-shadow: 0px 3px 10px 1px rgba(153,153,153,0.3);
+
+    .icon {
+      color: @slate;
+    }
+
+    .no-touch &:not(.is-disabled):not(.is-selected):hover,
+    html:not(.a11y-disable-focusoutline) .mcq-item__input:focus + & {
+      background-color: @platinum;
+      color: @font-color;
+
+      .icon {
+        color: @item-color;
+      }
+      .transition(background-color @duration ease-in, color @duration ease-in;);
+    }
+
+    .no-touch &:not(.is-disabled):not(.is-selected):hover .mcq-item__icon {
+      .effect-scalePulse;
+    }
+  }
+
+  &__label.is-disabled {
+    background-color: @disabled;
+    color: @disabled-inverted;
+  }
+
+  &__label.is-selected {
+    background-color: @white;
+    color: @font-color;
+    .icon {
+      color: @item-color;
+    }
+  }
+
+  &__state {
+    position: absolute;
+    top: 50%;
+    left: @item-padding;
+    .transform(translateY(-50%));
+
+    .dir-rtl & {
+      left: inherit;
+      right: @item-padding;
+    }
+  }
+
+  &__text {
+    padding: @item-padding @item-padding @item-padding (@icon-size + (@item-padding * 2));
+
+    .dir-rtl & {
+      padding-left: @item-padding;
+      padding-right: @icon-size + (@item-padding * 2);
+    }
+  }
+}
